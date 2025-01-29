@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage-angular';
 export class IntroGuard implements CanActivate{
   constructor(private storage: Storage, private router: Router){}
   async canActivate(){
-    const isIntroShowed = await this.storage.get('vilaIntro');
+    const isIntroShowed = await this.storage.get('viLaIntro');
     if (isIntroShowed){
       return true;
     }else{

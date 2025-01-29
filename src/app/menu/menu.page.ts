@@ -11,17 +11,18 @@ import { Storage } from '@ionic/storage-angular';
 export class MenuPage implements OnInit {
 
   constructor(
-    private menuCtrl: MenuController,
+    private menu: MenuController,
     private navCtrl: NavController,
-    private storage: Storage  
+    private storage: Storage
   ) { }
 
   ngOnInit() {
   }
 
-  closeMenu() {
-    this.menuCtrl.close();
+  closeMenu(){
+    this.menu.close();
   }
+
   log_out(){
     this.storage.remove("isUserLoggedIn");
     this.navCtrl.navigateRoot("/login");

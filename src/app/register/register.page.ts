@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { register } from 'swiper/element';
+import { NavController } from '@ionic/angular'; // Asegúrate de tener NavController
+import { AuthService } from '../services/auth.service'; // Importa tu servicio de autenticación
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,7 @@ export class RegisterPage implements OnInit {
     username: [{ type: 'required', message: 'El usuario es obligatorio' }],
     password: [
       { type: 'required', message: 'La contraseña es obligatoria' },
-      { type: 'minlength', message: 'La contraseña debe tener al menos 8S caracteres' },
+      { type: 'minlength', message: 'La contraseña debe tener al menos 6 caracteres' },
     ],
     passwordConfirmation: [
       { type: 'required', message: 'Debes confirmar tu contraseña' },
@@ -30,14 +31,18 @@ export class RegisterPage implements OnInit {
     ],
   };
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private navCtrl: NavController, // Inyecta NavController para navegación
+    private authService: AuthService // Inyecta tu servicio de autenticación
+  ) {
     this.registerForm = this.formBuilder.group(
       {
         name: new FormControl('', Validators.required),
         lastname: new FormControl('', Validators.required),
         email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
         username: new FormControl('', Validators.required),
-        password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
+        password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
         passwordConfirmation: new FormControl('', Validators.required),
       },
       { validators: this.matchPasswords }
@@ -46,9 +51,18 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {}
 
-
   registerUser(registerData: any) {
-    console.log(registerData,'Datos de registro:');
+    console.log(registerData, 'Datos de registro:');
+    
+    // Llama al servicio de autenticación para registrar al usuario
+    this.authService.register(registerData).then((res) => {
+      console.log('Registro exitoso:', res);
+      this.errorMessage = ''; // Limpia cualquier mensaje de error
+      this.navCtrl.navigateForward('/login'); // Redirige a la página de login
+    }).catch((err) => {
+      console.log('Error al registrar:', err);
+      this.errorMessage = 'Ocurrió un error al registrar el usuario'; // Mensaje de error
+    });
   }
 
   private matchPasswords(group: FormGroup) {

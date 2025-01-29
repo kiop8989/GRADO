@@ -1,0 +1,81 @@
+/* Fondo negro general */
+body {
+    background-color: black;
+    color: white; /* Texto blanco por defecto */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+  /* Configuración del menú para que se deslice desde la derecha */
+  ion-menu {
+    --background: black; /* Fondo negro para el menú */
+    --width: 250px; /* Ancho del menú */
+    --max-width: 100%;
+    --side: end; /* Esto mueve el menú hacia la derecha */
+  }
+  
+  /* Animación de movimiento de derecha a izquierda para el título del menú */
+  #menu-title {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente Comic Sans */
+    font-size: 24px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    background-image: linear-gradient(to right, red, yellow); /* Degradado de rojo a amarillo */
+    -webkit-background-clip: text; /* Clip del fondo al texto */
+    color: transparent; /* Hacer el color del texto transparente para que se vea el degradado */
+    transition: 0.3s; /* Transición suave */
+    animation: slideTitle 7s linear infinite; /* Llama a la animación */
+  }
+  
+  /* Definición de la animación de movimiento */
+  @keyframes slideTitle {
+    0% {
+      transform: translateX(100%); /* Empieza a la derecha fuera de la pantalla */
+    }
+    50% {
+      transform: translateX(-100%); /* Se mueve hacia la izquierda fuera de la pantalla */
+    }
+    100% {
+      transform: translateX(100%); /* Vuelve a la posición inicial (derecha) */
+    }
+  }
+  
+  /* Estilo para los ítems del menú */
+  ion-item {
+    --background: black;
+    --color:red;
+    font-size: 18px;
+    transition: 0.3s; /* Transición suave al pasar el ratón */
+  }
+  
+  /* Cambio de estilo cuando pasas el ratón por encima del ítem */
+  ion-item:hover {
+    --background: #333; /* Fondo gris oscuro */
+    --color: white; /* Texto rojo */
+    font-size: 22px; /* El texto aumenta de tamaño */
+  }
+  
+  /* Estilo para los íconos del menú */
+  ion-icon {
+    color: white;
+    transition: 0.3s; /* Transición suave al pasar el ratón */
+  }
+  
+  /* Cuando pasas el ratón sobre el ítem, el ícono cambia */
+  ion-item:hover ion-icon {
+    color: red; /* El ícono se vuelve rojo */
+    font-size: 28px; /* El ícono aumenta de tamaño */
+  }
+  
+  /* Estilos para los botones */
+  ion-button {
+    background-color: #3880ff;
+    color: white;
+    --border-radius: 5px;
+    --height: 45px;
+  }
+  
+  ion-button:hover {
+    background-color: #ff6347;
+    color: white;
+    transition: 0.3s; /* Transición suave al pasar el ratón */
+  }
+  
