@@ -1,0 +1,83 @@
+/* Fondo con degradado morado-azul para el ion-header */
+ion-header {
+    background: linear-gradient(to right, #cc00ff, #3300ff); /* Degradado morado-azul */
+}
+
+/* Fondo con degradado morado-azul para el ion-content */
+ion-content {
+    --background: linear-gradient(to right, #cc00ff, #3300ff) !important;
+}
+
+/* Estilos para el ion-toolbar */
+ion-toolbar {
+    --background: transparent; /* Fondo transparente para que herede el degradado del ion-header */
+    --color: #fcfcfc; /* Texto blanco */
+}
+
+/* Estilos para el ion-title */
+ion-title {
+    background: linear-gradient(to right, #ffffff, #000000); /* Degradado blanco a negro */
+    -webkit-background-clip: text; /* Aplicar el degradado solo al texto */
+    background-clip: text;
+    color: transparent; /* Hacer el texto transparente para que se vea el degradado */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.5em; /* Tamaño del texto */
+}
+
+/* Estilos para el ion-card */
+ion-card {
+    --background: linear-gradient(to right, #cc00ff, #3300ff) !important;
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 16px; /* Espacio entre las tarjetas */
+    
+}
+
+/* Estilos para las imágenes de los posts */
+.image-post {
+    width: 100%;
+    border-radius: 8px; /* Bordes redondeados en las imágenes */
+    object-fit: cover;
+    height: 200px; /* Altura de las imágenes */
+}
+
+/* Estilos para los avatares */
+.user-avatar img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+/* Estilos para el ion-fab (botón flotante) */
+ion-fab-button {
+    --background: #cc00ff; /* Fondo morado */
+    --color: #ffffff; /* Texto blanco */
+    --border-radius: 50%; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilos para el ion-fab en hover */
+ion-fab-button:hover {
+    --background: #3300ff; /* Fondo azul al hacer hover */
+}
+
+/* Estilos para el ion-card-header */
+ion-card-header {
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    padding: 8px 16px; /* Espaciado interno */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Estilos para el ion-card-subtitle */
+ion-card-subtitle {
+    font-weight: bold;
+    font-size: 1.7em;
+    color: #3300ff; /* Color morado para el texto */
+}
+
+/* Estilos para el contenido del post */
+ion-card-content {
+    padding: 16px;
+    color: #fefefe; /* Color gris oscuro para el texto */
+    font-size: 1.7em;
+}

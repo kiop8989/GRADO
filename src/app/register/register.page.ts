@@ -64,7 +64,9 @@ export class RegisterPage implements OnInit {
       this.errorMessage = 'Ocurrió un error al registrar el usuario'; // Mensaje de error
     });
   }
-
+  goToLogin() {
+    this.navCtrl.navigateForward('/login'); // Redirige a la página de Login
+  }
   private matchPasswords(group: FormGroup) {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('passwordConfirmation')?.value;

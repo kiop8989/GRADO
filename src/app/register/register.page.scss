@@ -1,100 +1,87 @@
+/* Fondo con degradado morado-azul para el ion-header */
+ion-header {
+  background: linear-gradient(to right, #cc00ff, #3300ff); /* Degradado morado-azul */
+}
+
+/* Fondo con degradado morado-azul para el ion-content */
 ion-content {
-    --background: linear-gradient(to bottom, #ff6f00, #ff9f00); /* Fondo degradado */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    color: #ffffff; /* Color del texto */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra del texto */
-    animation: backgroundAnimation 10s infinite alternate; /* Animación de fondo */
+  --background: linear-gradient(to right, #cc00ff, #3300ff);
 }
 
+/* Estilos para el ion-toolbar */
+ion-toolbar {
+  --background: transparent; /* Fondo transparente para que herede el degradado del ion-header */
+  --color: #ffffff; /* Texto blanco */
+}
+
+/* Estilos para el ion-title */
+ion-title {
+  background: linear-gradient(to right, #ffffff, #000000); /* Degradado blanco a negro */
+  -webkit-background-clip: text; /* Aplicar el degradado solo al texto */
+  background-clip: text;
+  color: transparent; /* Hacer el texto transparente para que se vea el degradado */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.5em; /* Tamaño del texto */
+}
+
+/* Estilos para los campos de entrada */
 ion-item {
-    --background: #ffffff; /* Fondo blanco para los campos */
-    --border-color: #000000; /* Bordes negros */
-    --border-width: 2px; /* Grosor del borde */
-    --border-radius: 10px; /* Bordes redondeados */
-    margin-bottom: 20px; /* Espaciado entre campos */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.header-title {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.header-title ion-icon {
-    margin-right: 10px;
-    font-size: 24px;
-}
-
-ion-item:focus-within {
-    transform: scale(1.02); /* Efecto de escala al interactuar */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Incremento de sombra */
+  --background: white; /* Fondo transparente */
+  --color: #000000; /* Texto blanco */
+  --padding-start: 0; /* Eliminar el padding inicial */
+  --inner-padding-end: 0; /* Eliminar el padding interno */
+  margin-bottom: 16px; /* Espacio entre los campos */
 }
 
 ion-input {
-    --color: #000000; /* Color del texto */
-    --placeholder-color: #777777; /* Color de los placeholders */
-    --padding-start: 10px; /* Espaciado interno */
-    font-size: 16px;
+  --color: #000000; /* Texto blanco */
+  --placeholder-color: #cccccc; /* Color del placeholder */
+  --padding-start: 16px; /* Espacio a la izquierda */
+  --padding-end: 16px; /* Espacio a la derecha */
+  --background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  border-radius: 8px; /* Bordes redondeados */
 }
 
-ion-label[color='danger'] {
-    font-size: 12px; /* Tamaño del texto de error */
-    margin-top: -10px;
-    margin-bottom: 10px;
-    color: #ff0000; /* Color rojo para los errores */
+/* Estilos para los mensajes de error */
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-left: 16px; /* Ajusta el margen según sea necesario */
 }
 
-form {
-    max-width: 400px; /* Limitar el ancho del formulario */
-    margin: 0 auto; /* Centrar el formulario */
-}
-
-ion-avatar {
-    width: 80px;
-    height: 80px;
-    margin: 20px auto;
-    border: 2px solid #000000; /* Bordes negros */
-    border-radius: 50%;
-    overflow: hidden; /* Ajustar la imagen al avatar */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
+/* Estilos para los botones */
 ion-button {
-    --background: #ff6f00; /* Color del botón */
-    --border-radius: 8px; /* Bordes redondeados */
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
-    --border-color: #000000; /* Bordes negros */
-    --border-width: 2px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  --background: #ffffff; /* Fondo blanco */
+  --color: #000000; /* Texto negro */
+  --border-radius: 8px; /* Bordes redondeados */
+  margin-top: 20px; /* Espacio superior */
 }
 
-ion-button:hover {
-    --background: #ff9f00; /* Color más claro al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de elevación */
+/* Estilos para el botón "Volver al Login" */
+ion-button[expand="block"] {
+  --background: transparent; /* Fondo transparente */
+  --color: #ffffff; /* Texto blanco */
+  --border-color: #ffffff; /* Borde blanco */
+  --border-width: 1px; /* Grosor del borde */
+  --border-style: solid; /* Estilo del borde */
 }
 
-ion-button:focus {
-    outline: 2px solid #000000; /* Añadir borde de enfoque */
-    outline-offset: 2px;
+.container {
+  position: fixed; /* Fija el contenedor en la pantalla */
+  top: 50%; /* Lo coloca en el 50% de la parte superior */
+  left: 50%; /* Lo coloca en el 50% de la parte izquierda */
+  transform: translate(-50%, -50%); /* Centra exactamente en el medio */
+  text-align: center; /* Centra el contenido interno (opcional) */
 }
 
-ion-button:active {
-    transform: translateY(1px); /* Efecto de presionado */
-}
+.fluid {
+  border-radius: 50%; /* Hace la imagen redonda */
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+  width: 50vw; /* Ocupa el 50% del ancho del viewport */
+  max-width: 300px; /* Limita el ancho máximo */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-ion-button:disabled {
-    --background: #cccccc; /* Color para el estado deshabilitado */
-    --box-shadow: none; /* Sin sombra */
-    opacity: 0.7;
 }

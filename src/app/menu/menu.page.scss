@@ -1,81 +1,75 @@
-/* Fondo negro general */
-body {
-    background-color: black;
-    color: white; /* Texto blanco por defecto */
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+/* Aplicar el degradado al ion-menu */
+ion-menu {
+  --background: linear-gradient(to right, #cc00ff, #3300ff); /* Degradado morado-azul */
+}
+
+/* Asegurar que el ion-content sea transparente */
+ion-menu ion-content {
+  --background: transparent;
+}
+
+/* Estilos para el ion-toolbar */
+ion-menu ion-toolbar {
+  --background: transparent; /* Fondo transparente */
+  --color: #ffffff; /* Texto blanco (para otros elementos) */
+}
+
+/* Estilos para el ion-title con degradado de texto */
+#menu-title {
+  display: inline-block; /* Necesario para aplicar transformaciones */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  background: linear-gradient(to right, #ffffff, #000000); /* Degradado blanco a negro */
+  -webkit-background-clip: text; /* Aplicar el degradado solo al texto */
+  background-clip: text;
+  color: whitesmoke; /* Hacer el texto transparente para que se vea el degradado */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.5em; /* Tamaño del texto */
+  animation: moveLeft 5s linear infinite; /* Aplicar la animación */
+}
+
+/* Definir la animación */
+@keyframes moveLeft {
+  from {
+    transform: translateX(100%); /* Comienza fuera del contenedor (derecha) */
   }
-  
-  /* Configuración del menú para que se deslice desde la derecha */
-  ion-menu {
-    --background: black; /* Fondo negro para el menú */
-    --width: 250px; /* Ancho del menú */
-    --max-width: 100%;
-    --side: end; /* Esto mueve el menú hacia la derecha */
+  to {
+    transform: translateX(-100%); /* Termina fuera del contenedor (izquierda) */
   }
-  
-  /* Animación de movimiento de derecha a izquierda para el título del menú */
-  #menu-title {
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente Comic Sans */
-    font-size: 24px; /* Tamaño de la fuente */
-    font-weight: bold; /* Negrita */
-    background-image: linear-gradient(to right, red, yellow); /* Degradado de rojo a amarillo */
-    -webkit-background-clip: text; /* Clip del fondo al texto */
-    color: transparent; /* Hacer el color del texto transparente para que se vea el degradado */
-    transition: 0.3s; /* Transición suave */
-    animation: slideTitle 7s linear infinite; /* Llama a la animación */
-  }
-  
-  /* Definición de la animación de movimiento */
-  @keyframes slideTitle {
-    0% {
-      transform: translateX(100%); /* Empieza a la derecha fuera de la pantalla */
-    }
-    50% {
-      transform: translateX(-100%); /* Se mueve hacia la izquierda fuera de la pantalla */
-    }
-    100% {
-      transform: translateX(100%); /* Vuelve a la posición inicial (derecha) */
-    }
-  }
-  
-  /* Estilo para los ítems del menú */
-  ion-item {
-    --background: black;
-    --color:red;
-    font-size: 18px;
-    transition: 0.3s; /* Transición suave al pasar el ratón */
-  }
-  
-  /* Cambio de estilo cuando pasas el ratón por encima del ítem */
-  ion-item:hover {
-    --background: #333; /* Fondo gris oscuro */
-    --color: white; /* Texto rojo */
-    font-size: 22px; /* El texto aumenta de tamaño */
-  }
-  
-  /* Estilo para los íconos del menú */
-  ion-icon {
-    color: white;
-    transition: 0.3s; /* Transición suave al pasar el ratón */
-  }
-  
-  /* Cuando pasas el ratón sobre el ítem, el ícono cambia */
-  ion-item:hover ion-icon {
-    color: red; /* El ícono se vuelve rojo */
-    font-size: 28px; /* El ícono aumenta de tamaño */
-  }
-  
-  /* Estilos para los botones */
-  ion-button {
-    background-color: #3880ff;
-    color: white;
-    --border-radius: 5px;
-    --height: 45px;
-  }
-  
-  ion-button:hover {
-    background-color: #ff6347;
-    color: white;
-    transition: 0.3s; /* Transición suave al pasar el ratón */
-  }
-  
+}
+
+/* Estilos para el ion-list */
+ion-menu ion-list {
+  background: transparent; /* Fondo transparente */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Estilos para los ítems del menú */
+ion-menu ion-item {
+  --background: transparent; /* Fondo transparente */
+  --color: #ffffff; /* Texto blanco */
+  --padding-start: 20px; /* Espacio a la izquierda */
+  --padding-end: 20px; /* Espacio a la derecha */
+  --min-height: 60px; /* Altura mínima */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+}
+
+/* Estilos para los íconos personalizados */
+ion-menu .custom-icon {
+  width: 24px; /* Tamaño de los íconos */
+  height: 24px;
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+
+/* Estilos para la imagen inferior */
+ion-menu .bottom-image {
+  text-align: center; /* Centrar la imagen */
+  padding: 20px; /* Espacio alrededor de la imagen */
+  background: transparent; /* Fondo transparente */
+}
+
+ion-menu .bottom-image img {
+  max-width: 100%; /* Ajustar al ancho del contenedor */
+  height: auto; /* Mantener la proporción */
+  border-radius: 10px; /* Bordes redondeados */
+}

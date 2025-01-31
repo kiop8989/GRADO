@@ -1,0 +1,63 @@
+/* Fondo con degradado morado-azul para el ion-header */
+ion-header {
+    background: linear-gradient(to right, #cc00ff, #3300ff);
+  }
+  
+  /* Fondo con degradado morado-azul para el ion-content */
+  ion-content {
+    --background: linear-gradient(to right, #cc00ff, #3300ff) !important;
+  }
+  
+  /* Fondo transparente en el toolbar para que herede el degradado */
+  ion-toolbar {
+    --background: transparent;
+    --color: #ffffff; /* Texto blanco */
+  }
+  
+  /* Estilos para el título */
+  ion-title {
+    background: linear-gradient(to right, #ffffff, #000000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  
+  /* Estilos para la barra de búsqueda */
+  ion-searchbar {
+    --background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente */
+    --color: #ffffff; /* Texto blanco */
+    --placeholder-color: #cccccc; /* Color del placeholder */
+    --border-radius: 10px; /* Bordes redondeados */
+  }
+  
+  /* Estilos para la lista de usuarios */
+  ion-list {
+    background: transparent;
+  }
+  
+  /* Estilos para los ítems de usuario */
+  ion-item {
+    --background: rgba(255, 255, 255, 0.1);
+    --color: #ffffff;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  
+  /* Avatar redondo */
+  ion-avatar img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Botón de seguir/dejar de seguir */
+  ion-button {
+    --background: #ffffff;
+    --color: #000000;
+    --border-radius: 8px;
+  }
+  
+  

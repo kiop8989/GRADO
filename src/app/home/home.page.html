@@ -13,7 +13,7 @@
       <ion-card-header>
         <ion-card-subtitle>
           <ion-avatar class="user-avatar">
-            <img [src]="post.user.image ? post.user.image : 'assets/images/default-avatar.jpeg'" />
+            <img [src]="post.user.image ? post.user.image : 'assets/image/sram.png'" />
           </ion-avatar>
           {{post.user.name}} 
         </ion-card-subtitle>
@@ -30,7 +30,8 @@
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="addPost()">
-      <ion-icon name="add"></ion-icon>
+      
+      <ion-icon name="star-half"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

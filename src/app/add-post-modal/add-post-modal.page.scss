@@ -1,0 +1,70 @@
+/* Fondo con degradado morado-azul para el ion-header */
+ion-header {
+    background: linear-gradient(to right, #cc00ff, #3300ff); /* Degradado morado-azul */
+}
+
+/* Fondo con degradado morado-azul para el ion-content */
+ion-content {
+    --background: linear-gradient(to right, #cc00ff, #3300ff);
+}
+
+/* Estilos para el ion-toolbar */
+ion-toolbar {
+    --background: transparent; /* Fondo transparente para heredar el degradado */
+    --color: #ffffff; /* Texto blanco */
+}
+
+/* Estilos para el ion-title */
+ion-title {
+    background: linear-gradient(to right, #ffffff, #000000); /* Degradado blanco a negro */
+    -webkit-background-clip: text; /* Aplicar el degradado solo al texto */
+    background-clip: text;
+    color: transparent; /* Hacer el texto transparente para que se vea el degradado */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.5em; /* Tamaño del texto */
+}
+
+/* Estilos para el contenedor de subida de imagen */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+}
+
+/* Estilos para la imagen del post */
+.post-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Texto de subida de imagen */
+.upload-text {
+    color: white;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Estilos para los campos de entrada */
+ion-item {
+    --background: white;
+    --color: #000000;
+    margin-bottom: 16px;
+}
+
+/* Estilos para el botón */
+ion-button {
+    --background: #ffffff;
+    --color: #000000;
+    --border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Ajuste del ion-footer */
+ion-footer {
+    background: transparent;
+    padding: 10px;
+}

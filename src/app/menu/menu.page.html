@@ -3,7 +3,6 @@
     <ion-header>
       <ion-toolbar>
         <ion-title id="menu-title">Menu Menu</ion-title>
-
         <ion-buttons slot="end">
           <ion-button (click)="closeMenu()">
             <ion-icon name="arrow-back-outline"></ion-icon>
@@ -14,22 +13,27 @@
     <ion-content>
       <ion-list>
         <ion-item id="home-item" routerLink="/menu/home" routerDirection="root" (click)="closeMenu()">
-          <ion-icon slot="start" name="home-outline"></ion-icon>
+          <img src="assets/icon/vulbis.png" alt="vulbis" class="custom-icon" />
           <ion-label>Inicio</ion-label>
         </ion-item>
         <ion-item id="profile-item" routerLink="/menu/account" routerDirection="root" (click)="closeMenu()">
-          <ion-icon slot="start" name="person-outline"></ion-icon>
+          <img src="assets/icon/forja.png" alt="Forja" class="custom-icon" />
+
           <ion-label>Perfil</ion-label>
         </ion-item>
         <ion-item id="search-item" routerLink="/menu/search-users" routerDirection="root" (click)="closeMenu()">
-          <ion-icon slot="start" name="search-outline"></ion-icon>
+          <img src="assets/icon/pesadilla.png" alt="pesadilla" class="custom-icon" />
           <ion-label>Buscar Usuarios</ion-label>
         </ion-item>
         <ion-item id="logout-item" (click)="log_out()">
-          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          <img src="assets/icon/salir.png" alt="salir|" class="custom-icon" />
           <ion-label>Salir</ion-label>
         </ion-item>
       </ion-list>
+
+      <div class="bottom-image">
+        <img src="assets/image/Dios.png" alt="Logo" />
+      </div>
     </ion-content>
   </ion-menu>
 

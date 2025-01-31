@@ -1,0 +1,81 @@
+/* Fondo con degradado morado-azul */
+ion-content {
+    --background: linear-gradient(to right, #cc00ff, #3300ff);
+  }
+  
+  /* Estilos para el ion-toolbar */
+  ion-toolbar {
+    --background: linear-gradient(to right, #cc00ff, #3300ff);
+    --color: #ffffff; /* Texto blanco */
+  }
+  
+  /* Estilos para el ion-title */
+  ion-title {
+    background: linear-gradient(to right, #ffffff, #000000); /* Degradado blanco a negro */
+    -webkit-background-clip: text; /* Aplicar el degradado solo al texto */
+    background-clip: text;
+    color: transparent; /* Hacer el texto transparente para que se vea el degradado */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.5em; /* Tamaño del texto */
+  }
+  
+  /* Estilos para las tarjetas (ion-card) */
+  ion-card {
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para un efecto elevado */
+    margin: 16px; /* Margen exterior */
+    padding: 16px; /* Espacio interno */
+    color: #ffffff; /* Texto blanco */
+  }
+  
+  /* Estilos para el avatar de perfil */
+  .profile-avatar {
+    width: 100px; /* Tamaño del avatar */
+    height: 100px;
+    margin: 0 auto; /* Centrar el avatar */
+    border: 2px solid #ffffff; /* Borde blanco */
+  }
+  
+  .profile-avatar img {
+    border-radius: 50%; /* Hacer la imagen redonda */
+  }
+  
+  /* Estilos para los botones */
+  ion-button {
+    --background: #ffffff; /* Fondo blanco */
+    --color: #000000; /* Texto negro */
+    --border-radius: 8px; /* Bordes redondeados */
+    margin: 16px; /* Margen exterior */
+  }
+  
+  /* Estilos para el botón "Cancelar" */
+  ion-button[color="light"] {
+    --background: transparent; /* Fondo transparente */
+    --color: #ffffff; /* Texto blanco */
+    --border-color: #ffffff; /* Borde blanco */
+    --border-width: 1px; /* Grosor del borde */
+    --border-style: solid; /* Estilo del borde */
+  }
+  
+  /* Estilos para los inputs */
+  ion-input {
+    --background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    --color: #0b0b0b; /* Texto blanco */
+    --placeholder-color: #cccccc; /* Color del placeholder */
+    --padding-start: 16px; /* Espacio a la izquierda */
+    --padding-end: 16px; /* Espacio a la derecha */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 16px; /* Espacio inferior */
+  }
+
+  ion-item{
+    --background: #ffffff; /* Fondo blanco */
+      --color: #000000; /* Texto negro */
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 2px solid #000000; /* Borde negro */
+      width: 100%; /* Asegura que respete el tamaño del contenedor */
+      height: 2.5rem;
+  }

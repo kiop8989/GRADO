@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
+    <ion-title>LOGIN</ion-title>
+  </ion-toolbar>  
 </ion-header>
 
 <ion-content>
-  <ion-title class="ion-text-capitalize">LOGIN</ion-title>
+  <ion-title class="ion-text-capitalize"></ion-title>
   <figure class="text-center">
-    <img
-      alt="Silhouette of a person's head"
-      src="https://ionicframework.com/docs/img/demos/avatar.svg"
+    <img 
+      alt="login"
+      src="assets/image/login.png"
     />
   </figure>
   <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
@@ -64,7 +64,7 @@
     
     <ion-button type="submit" >Login</ion-button>
   </form>
-  <!-- agregar boton o link para re digirigir al registro tarea-->
-  <ion-button fill="clear" routerLink="/register" style="color: black;">Register</ion-button>
+  
+  <ion-button  fill="clear" routerLink="/register" style="color: rgb(255, 255, 255);">register</ion-button>
   <p>{{errorMessage}}</p>
 </ion-content>

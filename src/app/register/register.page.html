@@ -1,13 +1,22 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-icon name="restaurant-outline"></ion-icon>
+      
     </ion-buttons>
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
+
 <ion-content>
+  <figure class="image-container">
+    <img src="assets/image/uzu.png" alt="Logo de la aplicación" />
+  </figure>
+
+
+  
   <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
     <!-- Campo Nombre -->
     <ion-item>
@@ -18,14 +27,9 @@
         formControlName="name"
       ></ion-input>
     </ion-item>
-    <ng-container *ngFor="let error of formErrors.name">
-      <ion-label
-        color="danger"
-        *ngIf="registerForm.get('name')?.hasError(error.type) && registerForm.get('name')?.dirty"
-      >
-        {{ error.message }}
-      </ion-label>
-    </ng-container>
+    <ion-label class="error-message" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.dirty">
+      {{ formErrors.name }}
+    </ion-label>
 
     <!-- Campo Apellido -->
     <ion-item>
@@ -36,14 +40,9 @@
         formControlName="lastname"
       ></ion-input>
     </ion-item>
-    <ng-container *ngFor="let error of formErrors.lastname">
-      <ion-label
-        color="danger"
-        *ngIf="registerForm.get('lastname')?.hasError(error.type) && registerForm.get('lastname')?.dirty"
-      >
-        {{ error.message }}
-      </ion-label>
-    </ng-container>
+    <ion-label class="error-message" *ngIf="registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.dirty">
+      {{ formErrors.lastname }}
+    </ion-label>
 
     <!-- Campo Correo -->
     <ion-item>
@@ -54,14 +53,9 @@
         formControlName="email"
       ></ion-input>
     </ion-item>
-    <ng-container *ngFor="let error of formErrors.email">
-      <ion-label
-        color="danger"
-        *ngIf="registerForm.get('email')?.hasError(error.type) && registerForm.get('email')?.dirty"
-      >
-        {{ error.message }}
-      </ion-label>
-    </ng-container>
+    <ion-label class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.dirty">
+      {{ formErrors.email }}
+    </ion-label>
 
     <!-- Campo Usuario -->
     <ion-item>
@@ -72,14 +66,9 @@
         formControlName="username"
       ></ion-input>
     </ion-item>
-    <ng-container *ngFor="let error of formErrors.username">
-      <ion-label
-        color="danger"
-        *ngIf="registerForm.get('username')?.hasError(error.type) && registerForm.get('username')?.dirty"
-      >
-        {{ error.message }}
-      </ion-label>
-    </ng-container>
+    <ion-label class="error-message" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.dirty">
+      {{ formErrors.username }}
+    </ion-label>
 
     <!-- Campo Contraseña -->
     <ion-item>
@@ -91,14 +80,9 @@
         formControlName="password"
       ></ion-input>
     </ion-item>
-    <ng-container *ngFor="let error of formErrors.password">
-      <ion-label
-        color="danger"
-        *ngIf="registerForm.get('password')?.hasError(error.type) && registerForm.get('password')?.dirty"
-      >
-        {{ error.message }}
-      </ion-label>
-    </ng-container>
+    <ion-label class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.dirty">
+      {{ formErrors.password }}
+    </ion-label>
 
     <!-- Campo Confirmación de Contraseña -->
     <ion-item>
@@ -110,18 +94,16 @@
         formControlName="passwordConfirmation"
       ></ion-input>
     </ion-item>
-    <ng-container *ngFor="let error of formErrors.passwordConfirmation">
-      <ion-label
-        color="danger"
-        *ngIf="registerForm.get('passwordConfirmation')?.hasError(error.type) && registerForm.get('passwordConfirmation')?.dirty"
-      >
-        {{ error.message }}
-      </ion-label>
-    </ng-container>
+    <ion-label class="error-message" *ngIf="registerForm.get('passwordConfirmation')?.invalid && registerForm.get('passwordConfirmation')?.dirty">
+      {{ formErrors.passwordConfirmation }}
+    </ion-label>
 
     <!-- Botón de Registro -->
     <ion-button expand="block" type="submit" [disabled]="!registerForm.valid">
       Registrar
     </ion-button>
+
+    <!-- Botón "Volver al Login" -->
+    <ion-button expand="block" (click)="goToLogin()">Volver al Login</ion-button>
   </form>
 </ion-content>
