@@ -5,8 +5,7 @@ defineCustomElements(window);
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostService } from '../services/post.service';
 import { Storage } from '@ionic/storage-angular';
-import { ModalController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
+import { ModalController, AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-post-modal',
@@ -17,13 +16,15 @@ import { AlertController } from '@ionic/angular';
 export class AddPostModalPage implements OnInit {
   post_image: any;
   addPostForm: FormGroup;
+  isLoading: boolean = false; // Estado del loader
 
   constructor(
     private formBuilder: FormBuilder,
     private postService: PostService,
     private storage: Storage,
     private modalController: ModalController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private loadingController: LoadingController
   ) {
     this.addPostForm = this.formBuilder.group({
       description: new FormControl('', [
@@ -37,12 +38,13 @@ export class AddPostModalPage implements OnInit {
   ngOnInit() {}
 
   async uploadPhone() {
-    await this.presentPhotoOptions(); 
+    await this.presentPhotoOptions();
   }
 
   async addPost(post_data: any) {
     console.log('Add Post');
     console.log(post_data);
+    
     const user = await this.storage.get('user');
     const post_param = {
       description: post_data.description,
@@ -52,21 +54,25 @@ export class AddPostModalPage implements OnInit {
 
     console.log(post_param, 'post para enviar');
 
+    this.isLoading = true; // Activar el loader
+
     this.postService.createPost(post_param).then(
       (data: any) => {
         console.log(data, 'post creado');
         data.user = {
           id: user.id,
           name: user.name,
-          image: user.image || 'assets/images/default-avatar.jpeg'
+          image: user.image || 'assets/image/xel.png'
         };
         this.postService.postCreated.emit(data);
         this.addPostForm.reset();
         this.post_image = null;
         this.modalController.dismiss();
+        this.isLoading = false; // Desactivar el loader
       },
       (error) => {
         console.log(error, 'error');
+        this.isLoading = false; // Desactivar el loader en caso de error
       }
     );
   }
@@ -95,13 +101,13 @@ export class AddPostModalPage implements OnInit {
         {
           text: "Cámara",
           handler: () => {
-            this.takePhoto(CameraSource.Camera); 
+            this.takePhoto(CameraSource.Camera);
           },
         },
         {
           text: "Galería",
           handler: () => {
-            this.takePhoto(CameraSource.Photos); 
+            this.takePhoto(CameraSource.Photos);
           },
         },
         {
@@ -117,6 +123,6 @@ export class AddPostModalPage implements OnInit {
   }
 
   async dismissModal() {
-    await this.modalController.dismiss(); 
+    await this.modalController.dismiss();
   }
 }

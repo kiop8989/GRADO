@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-   
     <ion-buttons slot="start">
       <ion-button (click)="dismissModal()">
         <ion-icon name="arrow-back"></ion-icon>
@@ -12,13 +11,14 @@
 
 <ion-content>
   <form [formGroup]="addPostForm" (ngSubmit)="addPost(addPostForm.value)">
-   
-    <div (click)="uploadPhone()">
+    
+    <!-- Imagen del Post -->
+    <div class="image-upload" (click)="uploadPhone()">
       <img [src]="post_image ? post_image : '/assets/image/open.png'" />
       <p *ngIf="!post_image">Haz clic para subir una imagen</p>
     </div>
 
-    
+    <!-- Campo de descripción -->
     <ion-item>
       <ion-textarea
         label="Descripción del post"
@@ -34,7 +34,7 @@
       </ion-note>
     </ion-item>
 
-    
+    <!-- Botón de Publicar -->
     <ion-footer>
       <ion-button
         type="submit"
@@ -43,5 +43,10 @@
         Publicar
       </ion-button>
     </ion-footer>
+
   </form>
+
+  <!-- Loader de Carga -->
+  <ion-loading [isOpen]="isLoading" message="Publicando post..." spinner="crescent"></ion-loading>
+
 </ion-content>
