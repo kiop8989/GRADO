@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PostService } from '../services/post.service';
-import { ModalController, ActionSheetController } from '@ionic/angular'; // Importa ActionSheetController
+import { ModalController, ActionSheetController } from '@ionic/angular';
 import { AddPostModalPage } from '../add-post-modal/add-post-modal.page';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera'; // Importa Capacitor Camera
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-home',
@@ -10,21 +10,45 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera'; // I
   styleUrls: ['home.page.scss'],
   standalone: false,
 })
-export class HomePage {
+export class HomePage implements OnInit, OnDestroy {
   posts: any[] = [];
   page: number = 1;
   limit: number = 10;
   hasMore: boolean = true;
+  randomTransform = ''; // Variable para el movimiento de la imagen
+  private intervalId: any; // Guardar el ID del intervalo para detenerlo
 
   constructor(
     private postService: PostService,
     private modalController: ModalController,
-    private actionSheetCtrl: ActionSheetController // Inyecta ActionSheetController
+    private actionSheetCtrl: ActionSheetController
   ) {}
 
   ngOnInit() {
     console.log('Init Home');
     this.loadPosts();
+    this.startMovingImage(); // Comienza a mover la imagen aleatoriamente
+  }
+
+  ngOnDestroy() {
+    // Limpia el intervalo al destruir el componente
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
+
+  startMovingImage() {
+    this.intervalId = setInterval(() => {
+      const screenWidth = window.innerWidth - 100; // Restar el tamaño de la imagen
+      const screenHeight = window.innerHeight - 100; // Restar el tamaño de la imagen
+
+      // Genera una posición aleatoria en X y Y
+      const randomX = Math.floor(Math.random() * screenWidth);
+      const randomY = Math.floor(Math.random() * screenHeight);
+
+      // Aplica la transformación CSS para mover la imagen
+      this.randomTransform = `translate(${randomX}px, ${randomY}px)`;
+    }, 2000); // Cada 2 segundos mueve la imagen
   }
 
   async addPost() {
@@ -60,7 +84,6 @@ export class HomePage {
     );
   }
 
-  // Función para mostrar las opciones de foto
   async presentPhotoOptions() {
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Selecciona una opción',
@@ -69,14 +92,14 @@ export class HomePage {
           text: 'Tomar una foto',
           icon: 'camera',
           handler: () => {
-            this.takePhoto(CameraSource.Camera); // Llama a takePhoto con la cámara
+            this.takePhoto(CameraSource.Camera);
           },
         },
         {
           text: 'Subir una foto de la galería',
           icon: 'image',
           handler: () => {
-            this.takePhoto(CameraSource.Photos); // Llama a takePhoto con la galería
+            this.takePhoto(CameraSource.Photos);
           },
         },
         {
@@ -90,19 +113,16 @@ export class HomePage {
     await actionSheet.present();
   }
 
-  // Función para tomar una foto o seleccionar de la galería
   async takePhoto(source: CameraSource) {
     console.log('Tomando foto desde:', source);
     try {
       const capturedPhoto = await Camera.getPhoto({
-        resultType: CameraResultType.DataUrl, // Obtiene la foto como una URL de datos
-        source: source, // Usa la fuente proporcionada (cámara o galería)
-        quality: 100, // Calidad de la imagen
+        resultType: CameraResultType.DataUrl,
+        source: source,
+        quality: 100,
       });
       console.log(capturedPhoto.dataUrl);
 
-      // Aquí puedes manejar la foto capturada o seleccionada
-      // Por ejemplo, puedes guardarla en una variable o enviarla a un servidor
       alert('Foto capturada/seleccionada con éxito: ' + capturedPhoto.dataUrl);
     } catch (error) {
       console.log('Error al tomar/seleccionar la foto:', error);

@@ -7,6 +7,9 @@
 </ion-header>
 
 <ion-content>
+  <!-- Imagen que se moverá aleatoriamente -->
+  <img src="assets/image/kawai.png" [ngStyle]="{'transform': randomTransform}" class="random-image" />
+  
   <ion-list>
     <ion-card *ngFor="let post of posts">
       <img src="{{post.image}}" class="image-post" />
@@ -30,7 +33,6 @@
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="addPost()">
-      
       <ion-icon name="star-half"></ion-icon>
     </ion-fab-button>
   </ion-fab>

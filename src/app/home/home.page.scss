@@ -29,7 +29,6 @@ ion-card {
     --background: linear-gradient(to right, #cc00ff, #3300ff) !important;
     border-radius: 8px; /* Bordes redondeados */
     margin-bottom: 16px; /* Espacio entre las tarjetas */
-    
 }
 
 /* Estilos para las imágenes de los posts */
@@ -80,4 +79,13 @@ ion-card-content {
     padding: 16px;
     color: #fefefe; /* Color gris oscuro para el texto */
     font-size: 1.7em;
+}
+
+/* Estilos para la imagen en movimiento */
+.random-image {
+    position: fixed;  /* Cambio a fixed para que se mueva con el scroll */
+    width: 100px;     /* Tamaño de la imagen */
+    height: 100px;    /* Tamaño de la imagen */
+    transition: transform 0.5s ease-in-out;
+    z-index: 10;      /* Asegura que la imagen esté por encima de otros elementos */
 }

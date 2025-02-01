@@ -64,7 +64,7 @@ export class AddPostModalPage implements OnInit {
           name: user.name,
           image: user.image || 'assets/image/xel.png'
         };
-        this.postService.postCreated.emit(data);
+       
         this.addPostForm.reset();
         this.post_image = null;
         this.modalController.dismiss();

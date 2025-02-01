@@ -79,3 +79,21 @@ ion-content {
       width: 100%; /* Asegura que respete el tamaño del contenedor */
       height: 2.5rem;
   }
+  .reduced-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;  /* Puedes ajustar el tamaño según lo necesites */
+    animation: moveLeft 4s linear infinite;
+  }
+  
+
+
+  @keyframes moveLeft {
+    from {
+      transform: translateX(100%); /* Comienza fuera del contenedor (derecha) */
+    }
+    to {
+      transform: translateX(-100%); /* Termina fuera del contenedor (izquierda) */
+    }
+  }
